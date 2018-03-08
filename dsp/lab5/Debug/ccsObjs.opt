@@ -1,0 +1,1 @@
+"./DSP2833x_CodeStartBranch.obj" "./DSP2833x_GlobalVariableDefs.obj" "./Lab5_5.obj" "../28335_RAM_lnk.cmd" "C:/tidcs/c28/DSP2833x/v131/DSP2833x_headers/cmd/DSP2833x_Headers_nonBIOS.cmd" -llibc.a 

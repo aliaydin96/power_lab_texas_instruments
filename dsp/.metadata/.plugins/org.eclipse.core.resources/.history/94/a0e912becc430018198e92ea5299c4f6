@@ -1,0 +1,90 @@
+//
+//      Lab5_1: TMS320F28335
+//      (c) Frank Bormann
+//
+//###########################################################################
+//
+// FILE:    Lab5_1.c
+//
+// TITLE:   DSP28335ControlCARD; Digital Output
+//          4 - bit - counter at 4 LEDs LD1(GPIO9), LD2(GPIO11), LD3(GPIO34)
+//          and LD4 (GPIO49)
+//          software delay loop; watchdog disabled
+//          template file for Lab5_1
+//###########################################################################
+//  Ver | dd mmm yyyy | Who  | Description of changes
+// =====|=============|======|===============================================
+//  3.0 | 02 May 2008 | F.B. | Lab5_1 for F28335;
+//  3.1 | 06 Nov 2009 | F.B  | Lab5_1 for F28335 and PE revision5
+//###########################################################################
+#include "DSP2833x_Device.h"
+
+// Prototype statements for functions found within this file.
+void Gpio_select(void);
+extern void InitSysCtrl(void);
+
+void Setup_ePWM1A(void);
+//###########################################################################
+//                      main code
+//###########################################################################
+void main(void)
+{
+
+
+    InitSysCtrl();      // Basic Core Initialization
+    EALLOW;
+    SysCtrlRegs.WDCR = 0x00AF;
+    EDIS;
+
+
+    DINT;               // Disable all interrupts
+
+    Gpio_select();      // GPIO9,GPIO11,GPIO34 and GPIO49 as output (LEDs @ peripheral explorer)
+    Setup_ePWM1A();
+
+    while(1)
+    {
+
+            EALLOW;
+            SysCtrlRegs.WDKEY = 0x55;   // service WD #1
+            SysCtrlRegs.WDKEY = 0xAA;   // service WD #2
+            EDIS;
+
+    }
+}
+
+
+void Gpio_select(void)
+{
+    EALLOW;
+    GpioCtrlRegs.GPAMUX1.all = 0;       // GPIO15 ... GPIO0 = General Puropse I/O
+    GpioCtrlRegs.GPAMUX1.bit.GPIO0 = 1; // ePWM1A active
+    GpioCtrlRegs.GPAMUX2.all = 0;       // GPIO31 ... GPIO16 = General Purpose I/O
+    GpioCtrlRegs.GPBMUX1.all = 0;       // GPIO47 ... GPIO32 = General Purpose I/O
+    GpioCtrlRegs.GPBMUX2.all = 0;       // GPIO63 ... GPIO48 = General Purpose I/O
+    GpioCtrlRegs.GPCMUX1.all = 0;       // GPIO79 ... GPIO64 = General Purpose I/O
+    GpioCtrlRegs.GPCMUX2.all = 0;       // GPIO87 ... GPIO80 = General Purpose I/O
+
+    GpioCtrlRegs.GPADIR.all = 0;
+
+
+    GpioCtrlRegs.GPBDIR.all = 0;        // GPIO63-32 as inputs
+    GpioCtrlRegs.GPBDIR.bit.GPIO34 = 1; // peripheral explorer: LED LD3 at GPIO34
+    GpioCtrlRegs.GPCDIR.all = 0;        // GPIO87-64 as inputs
+    EDIS;
+}
+
+void Setup_ePWM1A(void){
+    EPwm1Regs.TBCTL.all = 0;
+    EPwm1Regs.TBCTL.bit.CLKDIV = 0;
+    EPwm1Regs.TBCTL.bit.HSPCLKDIV = 0;
+    EPwm1Regs.TBCTL.bit.CTRMODE = 2;  // Count up and down operation (10) = 2
+    EPwm1Regs.AQCTLA.all = 0x0006;
+    EPwm1Regs.TBPRD = 30000;
+
+
+
+}
+//===========================================================================
+// End of SourceCode.
+//===========================================================================

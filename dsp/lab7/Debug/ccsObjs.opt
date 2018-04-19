@@ -1,0 +1,1 @@
+"./DSP2833x_ADC_cal.obj" "./DSP2833x_CodeStartBranch.obj" "./DSP2833x_CpuTimers.obj" "./DSP2833x_DefaultIsr.obj" "./DSP2833x_GlobalVariableDefs.obj" "./DSP2833x_PieCtrl.obj" "./DSP2833x_PieVect.obj" "./DSP2833x_SysCtrl.obj" "./DSP2833x_usDelay.obj" "./lab7_2.obj" "../28335_RAM_lnk.cmd" "C:/tidcs/c28/DSP2833x/v131/DSP2833x_headers/cmd/DSP2833x_Headers_nonBIOS.cmd" -llibc.a 

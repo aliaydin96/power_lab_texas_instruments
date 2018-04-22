@@ -23,7 +23,7 @@ ORDERED_OBJS += \
 "./Display_ADC.obj" \
 "./project.obj" \
 "../28335_RAM_lnk.cmd" \
-"C:/tidcs/c28/DSP2833x/v131/DSP2833x_headers/cmd/DSP2833x_Headers_nonBIOS.cmd" \
+"C:/Users/tidcs/c28/DSP2833x/v131/DSP2833x_headers/cmd/DSP2833x_Headers_nonBIOS.cmd" \
 $(GEN_CMDS__FLAG) \
 -lrts2800_fpu32.lib \
 

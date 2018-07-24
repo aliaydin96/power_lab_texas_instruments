@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v16.9.7                     
 ******************************************************************************
->> Linked Wed Feb 28 23:05:20 2018
+>> Linked Sun Jul 22 23:18:03 2018
 
 OUTPUT FILE NAME:   <lab2a.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 0000044d
@@ -39,7 +39,7 @@ section   page    origin      length       input sections
 .text      0    0000026c    00000322     
                   0000026c    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
                   00000308    00000070                                   : autoinit.obj (.text)
-                  00000378    0000006c     main.obj (.text)
+                  00000378    0000006c     kirmizi_led.obj (.text)
                   000003e4    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.obj (.text:decompress:lzss)
                   0000044c    00000054                                   : boot.obj (.text)
                   000004a0    00000054                                   : exit.obj (.text)
@@ -75,7 +75,7 @@ MODULE SUMMARY
        ------                         ----   -------   -------
     .\
        tm4c123gh6pm_startup_ccs.obj   12     620       0      
-       main.obj                       108    0         0      
+       kirmizi_led.obj                108    0         0      
     +--+------------------------------+------+---------+---------+
        Total:                         120    620       0      
                                                               

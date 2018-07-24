@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 
-<!-- Auto-generated from: C:\Users\ROG\Documents\texas\dsp\.metadata\.plugins\com.ti.ccstudio.builddefinitions.generator\native\C2000_16.9.7.LTS.xml -->
+<!-- Auto-generated from: C:\Users\ROG\Documents\Github\power_lab_texas_instruments\dsp\.metadata\.plugins\com.ti.ccstudio.builddefinitions.generator\native\C2000_16.9.8.LTS.xml -->
 
 <plugin>
 
@@ -1196,6 +1196,26 @@ Use '--printf_support=minimal' to exclude support for width and precision flags 
 					command="--cla_background_task=off"/>
 			</option>
 			<option
+				id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.CLA_SIGNED_COMPARE_WORKAROUND"
+				name="Workaround for CLA signed integer comparison (--cla_signed_compare_workaround)"
+				tip="Aliases: --cla_signed_compare_workaround&lt;BODY&gt;The CLA signed integer comparison instruction (MCMP32) overflows if the difference is too large, such as when the inputs have opposite sign and are near the extreme values. This sets the status register incorrectly. When this option is on, the compiler will add code to work around the problem."
+				category="com.ti.ccstudio.buildDefinitions.C2000_16.9.cat.compilerID.MODEL"
+				command="--cla_signed_compare_workaround"
+				valueType="enumerated">
+				<enumeratedOptionValue
+					id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.CLA_SIGNED_COMPARE_WORKAROUND._none"
+					name=""
+					command=""/>
+				<enumeratedOptionValue
+					id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.CLA_SIGNED_COMPARE_WORKAROUND.on"
+					name="on"
+					command="--cla_signed_compare_workaround=on"/>
+				<enumeratedOptionValue
+					id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.CLA_SIGNED_COMPARE_WORKAROUND.off"
+					name="off"
+					command="--cla_signed_compare_workaround=off"/>
+			</option>
+			<option
 				id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.DISABLE_DP_LOAD_OPT"
 				name="No DP load optimization (--disable_dp_load_opt, -md)"
 				tip="Aliases: --disable_dp_load_opt, -md&lt;BODY&gt;No DP load optimization"
@@ -2231,7 +2251,7 @@ Level 3 (-op3) indicates that the module has functions that are called by other 
 			<option
 				id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.GEN_PREPROCESSOR_LISTING"
 				name="Output preprocessor listing to .rl file (--gen_preprocessor_listing)"
-				tip="Aliases: --gen_preprocessor_listing&lt;BODY&gt;Generates a listing file with informaton about the preprocessing output. One of the useful features is being able to compare lines before and after preprocessing has occurred. A .rl file will be generated for every source file."
+				tip="Aliases: --gen_preprocessor_listing&lt;BODY&gt;Generates a listing file with information about the preprocessing output. One of the useful features is being able to compare lines before and after preprocessing has occurred. A .rl file will be generated for every source file."
 				category="com.ti.ccstudio.buildDefinitions.C2000_16.9.cat.compilerID.AUX"
 				defaultValue="false"
 				command="--gen_preprocessor_listing"
@@ -3817,6 +3837,8 @@ NOTE: User can specify --retain='*(*)' to retain all the sections from all the i
 			<option command="--c2xlp_src_compatible" tag="C2XLP_SRC_COMPATIBLE"/>
 			<option command="--cla_background_task=on" tag="CLA_BACKGROUND_TASK.on"/>
 			<option command="--cla_background_task=off" tag="CLA_BACKGROUND_TASK.off"/>
+			<option command="--cla_signed_compare_workaround=on" tag="CLA_SIGNED_COMPARE_WORKAROUND.on"/>
+			<option command="--cla_signed_compare_workaround=off" tag="CLA_SIGNED_COMPARE_WORKAROUND.off"/>
 			<option command="-md" tag="DISABLE_DP_LOAD_OPT"/>
 			<option command="--disable_dp_load_opt" tag="DISABLE_DP_LOAD_OPT"/>
 			<option command="-me" tag="NO_FAST_BRANCH"/>
@@ -4196,7 +4218,7 @@ NOTE: User can specify --retain='*(*)' to retain all the sections from all the i
 		<enumeratedOptionValue id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.SILICON_VERSION.27"><deprecate severity="3"/></enumeratedOptionValue>
 		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.OPTIMIZE_WITH_DEBUG" hide="true"><deprecate severity="3" diagnostic="--optimize_with_debug is deprecated and will be removed in a subsequent release. The behavior is enabled by default."/></option>
 		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.SYMDEBUG__KEEP_ALL_TYPES" chain="--keep_unneeded_types=true " hide="true"><deprecate severity="3" diagnostic="--symdebug:keep_all_types is deprecated and will be removed in a subsequent release."/></option>
-		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.EXCEPTIONS" chain="--rtti --disable_custom_call_conv "></option>
+		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.EXCEPTIONS" chain="--rtti "></option>
 		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.GCC" hide="true"><deprecate severity="3" diagnostic="--gcc is deprecated and will be removed in a subsequent release. GCC compatibility is implemented through the --relaxed_ansi option and is the default behavior of the compiler."/></option>
 		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.KEEP_UNNEEDED_STATICS" hide="true"><deprecate severity="3" diagnostic="--keep_unneeded_statics is deprecated and will be removed in a subsequent release. This capability can be achieved by using the RETAIN pragma."/></option>
 		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.MULTIBYTE_CHARS" hide="true"><deprecate severity="3" diagnostic="--multibyte_chars is deprecated and will be removed in a subsequent release. The support for multibyte characters is now enabled by default."/></option>
@@ -4216,7 +4238,7 @@ NOTE: User can specify --retain='*(*)' to retain all the sections from all the i
 		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.SMALL_ENUM" hide="true"><deprecate severity="3" diagnostic="--small_enum is deprecated and will be removed in a subsequent release. Use --enum_type=packed instead."/></option>
 		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.MULTITHREAD" chain="--use_libc_tls "></option>
 		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.OPT_FOR_SPACE" chain="--size_speed_goal=high_risk_size "></option>
-		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.SINGLE_INLINE" hide="true"><deprecate severity="3" diagnostic="--single_inline is deperecated and will be removed in a subsequent release."/></option>
+		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.SINGLE_INLINE" hide="true"><deprecate severity="3" diagnostic="--single_inline is deprecated and will be removed in a subsequent release."/></option>
 		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.STD_LIB_FUNC_DEFINED" hide="true"><deprecate severity="3" diagnostic="--std_lib_func_defined is deprecated and will be removed in a subsequent release."/></option>
 		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.STD_LIB_FUNC_NOT_DEFINED" hide="true"><deprecate severity="3" diagnostic="--std_lib_func_not_defined is deprecated and will be removed in a subsequent release."/></option>
 		<option id="com.ti.ccstudio.buildDefinitions.C2000_16.9.compilerID.STD_LIB_FUNC_REDEFINED" hide="true"><deprecate severity="3" diagnostic="--std_lib_func_redefined is deprecated and will be removed in a subsequent release."/></option>

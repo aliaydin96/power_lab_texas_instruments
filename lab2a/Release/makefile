@@ -10,9 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./asd.obj" \
-"./main.obj" \
-"./rgb.obj" \
+"./kirmizi_led.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
 "../tm4c123gh6pm.cmd" \
 $(GEN_CMDS__FLAG) \
@@ -157,8 +155,8 @@ lab2a.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "asd.obj" "main.obj" "rgb.obj" "tm4c123gh6pm_startup_ccs.obj" 
-	-$(RM) "asd.d" "main.d" "rgb.d" "tm4c123gh6pm_startup_ccs.d" 
+	-$(RM) "kirmizi_led.obj" "tm4c123gh6pm_startup_ccs.obj" 
+	-$(RM) "kirmizi_led.d" "tm4c123gh6pm_startup_ccs.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -30,6 +30,10 @@ extern void InitCpuTimers(void);
 extern void ConfigCpuTimer(struct CPUTIMER_VARS *, float, float);
 
 void Setup_ePWM1A(void);
+
+
+
+int up = 1;
 //###########################################################################
 //                      main code
 //###########################################################################
@@ -118,7 +122,7 @@ void Gpio_select(void)
     EDIS; 
 }
 interrupt void cpu_timer0_isr(void){
-    int up = 1;
+
     CpuTimer0.InterruptCount++;
     EALLOW;
     SysCtrlRegs.WDKEY = 0xAA;

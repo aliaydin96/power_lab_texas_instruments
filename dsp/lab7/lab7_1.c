@@ -126,15 +126,18 @@ interrupt void cpu_timer0_isr(void){
 }
 
 void Setup_ePWM1A(void){
-    EPwm1Regs.TBCTL.all = 0;
-    EPwm1Regs.TBCTL.bit.CLKDIV = 0;   //CLKDIV = 1
-    EPwm1Regs.TBCTL.bit.HSPCLKDIV = 1; //HSPCLKDIV = 2
+
+    EPwm1Regs.TBCTL.bit.CLKDIV = 7;   //CLKDIV = 1
+    EPwm1Regs.TBCTL.bit.HSPCLKDIV = 7; //HSPCLKDIV = 2
     EPwm1Regs.TBCTL.bit.CTRMODE = 2;  // Count up and down operation (10) = 2
     EPwm1Regs.AQCTLA.all = 0x0006;
-    EPwm1Regs.TBPRD = 15000;
+    EPwm1Regs.TBPRD = 41853;       //the maximum number for TBPRD is (216 -1) or 65535
+    //// i arrange frequency 1 Hz and I observed on led
     /*  TBPRD = 0.5*fcpu/(fpwm*CLKDIV*HSPCLKDIV)
-         * fcpu = 60 MHz , fpwm = 1 KHz
-
+         * fcpu = 150 MHz , fpwm = 1 KHz
+            CLKDIV = 0
+            HSPCLK=1
+            TBPRD=37500
          */
 
 

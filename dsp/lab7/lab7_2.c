@@ -129,29 +129,29 @@ interrupt void cpu_timer0_isr(void){
 
 void Setup_ePWM(void){
     EPwm1Regs.TBCTL.all = 0;
-    EPwm1Regs.TBCTL.bit.CLKDIV = 0; // CLKDIV = 1
-    EPwm1Regs.TBCTL.bit.HSPCLKDIV = 0;  //HPSCLKDIV = 1
+    EPwm1Regs.TBCTL.bit.CLKDIV = 7; // CLKDIV = 128
+    EPwm1Regs.TBCTL.bit.HSPCLKDIV = 7;  //HPSCLKDIV = 14
     EPwm1Regs.TBCTL.bit.CTRMODE = 2;  // Count up and down operation (10) = 2
     EPwm1Regs.AQCTLA.all = 0x0006;
-    EPwm1Regs.TBPRD = 30000;
+    EPwm1Regs.TBPRD = 41853;
     /*  TBPRD = 0.5*fcpu/(fpwm*CLKDIV*HSPCLKDIV)
-     * fcpu = 60 MHz , fpwm = 1 KHz
+     * fcpu = 150 MHz , fpwm = 1 KHz
 
      */
     EPwm2Regs.TBCTL.all = 0;
-    EPwm2Regs.TBCTL.bit.CLKDIV = 0;   // CLKDIV = 1
-    EPwm2Regs.TBCTL.bit.HSPCLKDIV = 1; //HPSCLKDIV = 1
+    EPwm2Regs.TBCTL.bit.CLKDIV = 7;   // CLKDIV = 128
+    EPwm2Regs.TBCTL.bit.HSPCLKDIV = 7; //HPSCLKDIV = 14
     EPwm2Regs.TBCTL.bit.CTRMODE = 2;  // Count up and down operation (10) = 2
     EPwm2Regs.AQCTLA.all = 0x0006;
-    EPwm2Regs.TBPRD = 30000;
+    EPwm2Regs.TBPRD = 41853;
 
 
     EPwm3Regs.TBCTL.all = 0;
-    EPwm3Regs.TBCTL.bit.CLKDIV = 0;
-    EPwm3Regs.TBCTL.bit.HSPCLKDIV = 0;
+    EPwm3Regs.TBCTL.bit.CLKDIV = 7;
+    EPwm3Regs.TBCTL.bit.HSPCLKDIV = 7;
     EPwm3Regs.TBCTL.bit.CTRMODE = 2;  // Count up and down operation (10) = 2
     EPwm3Regs.AQCTLA.all = 0x0006;
-    EPwm3Regs.TBPRD = 30000;
+    EPwm3Regs.TBPRD = 41853;
 
     EPwm1Regs.TBCTL.bit.SYNCOSEL = 1;   // GENERATE A SIGNAL IF CTR =0
 
@@ -161,6 +161,8 @@ void Setup_ePWM(void){
 
     EPwm3Regs.TBCTL.bit.PHSEN = 1; // PHASE ENABLE FOR EPWM3
     EPwm3Regs.TBPHS.half.TBPHS = 20000;  // 2/3 PHASE SHIFT
+    // I observed phase shift by using three leds
+
 }
 //===========================================================================
 // End of SourceCode.

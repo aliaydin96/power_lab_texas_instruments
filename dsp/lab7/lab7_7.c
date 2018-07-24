@@ -149,7 +149,7 @@ void Setup_ePWM1(void){
     EPwm1Regs.TBPRD = 15000; 
 
     /*  TBPRD = 0.5*fcpu/(fpwm*CLKDIV*HSPCLKDIV)
-         * fcpu = 60 MHz , fpwm = 1 KHz
+         * fcpu = 150 MHz , fpwm = 1 KHz
 
          */
     EPwm1Regs.PCCTL.all = 0x03FD;
